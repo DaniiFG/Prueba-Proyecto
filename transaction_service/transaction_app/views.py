@@ -7,6 +7,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.utils import timezone
 from django.db.models import Count, Sum, Q
 import requests
+import logging
 from datetime import datetime, timedelta
 
 from .models import Transaction, TransactionStat
@@ -17,6 +18,8 @@ from .serializers import (
     TransactionStatSerializer
 )
 
+logger = logging.getLogger(__name__)
+
 class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
@@ -24,6 +27,19 @@ class TransactionViewSet(viewsets.ModelViewSet):
     filterset_fields = ['status', 'sender_id']
     ordering_fields = ['created_at', 'amount', 'fraud_score']
     ordering = ['-created_at']
+    
+    def get_permissions(self):
+        """
+        Personalizar permisos basados en la acción.
+        - create: Requiere autenticación
+        - list: Permitir acceso público para pruebas (cambiar en producción)
+        - resto: Requiere autenticación
+        """
+        if self.action == 'list':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
     
     def get_serializer_class(self):
         if self.action == 'create':
@@ -33,11 +49,15 @@ class TransactionViewSet(viewsets.ModelViewSet):
         return TransactionSerializer
     
     def create(self, request, *args, **kwargs):
+        logger.debug("Creando transacción")
+        logger.debug(f"Datos recibidos: {request.data}")
+        
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
         # Crear la transacción
         transaction = serializer.save()
+        logger.debug(f"Transacción creada con ID: {transaction.id}")
         
         # Enviar transacción al servicio de análisis de fraude
         try:
@@ -49,10 +69,14 @@ class TransactionViewSet(viewsets.ModelViewSet):
                 'created_at': transaction.created_at.isoformat()
             }
             
-            response = requests.post(fraud_analysis_url, json=fraud_analysis_data)
+            logger.debug(f"Enviando datos a servicio de fraude: {fraud_analysis_data}")
+            
+            response = requests.post(fraud_analysis_url, json=fraud_analysis_data, timeout=10)
             
             if response.status_code == 200:
                 fraud_result = response.json()
+                logger.debug(f"Respuesta del servicio de fraude: {fraud_result}")
+                
                 transaction.fraud_score = fraud_result.get('fraud_score', 0.0)
                 
                 # Actualizar estado según score de fraude
@@ -64,6 +88,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
                     transaction.status = 'legitimate'
                 
                 transaction.save()
+                logger.debug(f"Transacción actualizada con score: {transaction.fraud_score}, estado: {transaction.status}")
                 
                 # Actualizar estadísticas diarias
                 self._update_transaction_stats(transaction)
@@ -71,10 +96,12 @@ class TransactionViewSet(viewsets.ModelViewSet):
                 # Si es fraudulenta, enviar notificación (simulado)
                 if transaction.status == 'fraudulent':
                     self._send_fraud_notification(transaction)
+            else:
+                logger.error(f"Error del servicio de fraude: {response.status_code} - {response.text}")
         
         except Exception as e:
             # En caso de error, mantener la transacción como legítima pero registrar el error
-            print(f"Error al analizar fraude: {str(e)}")
+            logger.error(f"Error al analizar fraude: {str(e)}")
         
         return Response(TransactionSerializer(transaction).data, status=status.HTTP_201_CREATED)
     
@@ -96,33 +123,36 @@ class TransactionViewSet(viewsets.ModelViewSet):
         
         return Response(TransactionSerializer(transaction).data)
     
-    @action(detail=False, methods=['get'])
-    def stats(self, request):
-        """Obtener estadísticas de transacciones para períodos específicos"""
-        today = timezone.now().date()
-        
-        # Estadísticas del día actual
-        today_stats = self._get_period_stats(today, today)
-        
-        # Estadísticas de la última semana
-        week_start = today - timedelta(days=6)
-        week_stats = self._get_period_stats(week_start, today)
-        
-        # Estadísticas del último mes
-        month_start = today - timedelta(days=29)
-        month_stats = self._get_period_stats(month_start, today)
-        
-        return Response({
-            'today': today_stats,
-            'last_week': week_stats,
-            'last_month': month_stats
-        })
+@action(detail=False, methods=['get'])
+def stats(self, request):
+    """Obtener estadísticas de transacciones para períodos específicos"""
+    self.permission_classes = [AllowAny]  # Establecer permisos para esta acción específica
+    self.check_permissions(request)
+    
+    today = timezone.now().date()
+    
+    # Estadísticas del día actual
+    today_stats = self._get_period_stats(today, today)
+    
+    # Estadísticas de la última semana
+    week_start = today - timedelta(days=6)
+    week_stats = self._get_period_stats(week_start, today)
+    
+    # Estadísticas del último mes
+    month_start = today - timedelta(days=29)
+    month_stats = self._get_period_stats(month_start, today)
+    
+    return Response({
+        'today': today_stats,
+        'last_week': week_stats,
+        'last_month': month_stats
+    })
     
     @action(detail=False, methods=['get'])
     def filter_by_amount(self, request):
         """Filtrar transacciones por rango de monto"""
-        min_amount = request.query_params.get('min', None)
-        max_amount = request.query_params.get('max', None)
+        min_amount = request.query_params.get('min_amount', None)
+        max_amount = request.query_params.get('max_amount', None)
         
         queryset = self.get_queryset()
         
@@ -138,12 +168,13 @@ class TransactionViewSet(viewsets.ModelViewSet):
         """Obtener estadísticas para un período dado"""
         transactions = Transaction.objects.filter(created_at__date__gte=start_date, created_at__date__lte=end_date)
         
+        # Asegurarse de que las cantidades puedan ser serializadas a JSON
         stats = {
             'total': transactions.count(),
             'legitimate': transactions.filter(status='legitimate').count(),
             'possibly_fraudulent': transactions.filter(status='possibly_fraudulent').count(),
             'fraudulent': transactions.filter(status='fraudulent').count(),
-            'total_amount': sum([t.amount for t in transactions]),
+            'total_amount': float(sum(t.amount for t in transactions)) if transactions else 0.0,
         }
         
         # Calcular distribución por día para gráficos

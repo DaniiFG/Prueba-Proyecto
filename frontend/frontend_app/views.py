@@ -4,55 +4,71 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 import requests
 import json
 from datetime import datetime, timedelta
+import logging
 
-# URLs de los microservicios
-AUTH_SERVICE_URL = 'http://localhost:8001/api/auth/'
-TRANSACTION_SERVICE_URL = 'http://localhost:8002/api/transactions/'
-FRAUD_SERVICE_URL = 'http://localhost:8003/api/fraud/'
+logger = logging.getLogger(__name__)
+
+# Obtener URLs de configuración en lugar de usar constantes hardcoded
+def get_service_url(service_name):
+    """Función auxiliar para obtener la URL del servicio desde configuración"""
+    return settings.MICROSERVICES.get(service_name, '')
 
 def index(request):
     """Vista de la página principal"""
     return render(request, 'index.html')
 
 def login_view(request):
-    print("\n==== DEBUG LOGIN VIEW ====")
-    print(f"Método: {request.method}")
+    logger.debug("==== DEBUG LOGIN VIEW ====")
+    logger.debug(f"Método: {request.method}")
+    
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        print(f"Email: {email}")
-        print(f"Autenticando con: http://localhost:8001/api/auth/login/")
+        logger.debug(f"Email: {email}")
+        
+        # Obtener URL del servicio de autenticación
+        auth_url = get_service_url('AUTH_SERVICE_URL')
+        login_url = f"{auth_url}login/"
+        logger.debug(f"Autenticando con: {login_url}")
         
         try:
             response = requests.post(
-                "http://localhost:8001/api/auth/login/",
-                json={"email": email, "password": password}
+                login_url,
+                json={"email": email, "password": password},
+                timeout=5  # Añadir timeout para evitar esperas largas
             )
-            print(f"Código de respuesta: {response.status_code}")
-            print(f"Contenido: {response.text}")
+            logger.debug(f"Código de respuesta: {response.status_code}")
             
             if response.status_code == 200:
                 data = response.json()
-                print(f"Datos recibidos: {data.keys()}")
+                logger.debug(f"Datos recibidos: {data.keys()}")
                 
-                # Guarda en sesión e imprime
+                # Guardar en sesión
                 request.session['access_token'] = data.get('access', '')
+                request.session['refresh_token'] = data.get('refresh', '')  # Guardar también el refresh token
                 request.session['user_data'] = data.get('user', {})
-                print(f"Guardado en sesión: {request.session.get('access_token')[:10]}... y {request.session.get('user_data')}")
                 request.session.modified = True
                 
-                # Redirigir
-                print("Redirigiendo a dashboard")
+                logger.debug("Redirigiendo a dashboard")
+                messages.success(request, 'Inicio de sesión exitoso')
                 return redirect('user_dashboard')
             else:
-                print(f"Error en autenticación: {response.text}")
-        except Exception as e:
-            print(f"Excepción: {str(e)}")
+                error_msg = "Credenciales inválidas"
+                try:
+                    error_data = response.json()
+                    if 'error' in error_data:
+                        error_msg = error_data['error']
+                except:
+                    pass
+                messages.error(request, error_msg)
+        except requests.RequestException as e:
+            logger.error(f"Error de conexión: {str(e)}")
+            messages.error(request, f"Error de conexión con el servicio. Por favor, inténtelo de nuevo más tarde.")
     
-    print("Retornando formulario de login")
     return render(request, 'registration/login.html')
 
 def register_view(request):
@@ -77,8 +93,12 @@ def register_view(request):
         
         # Llamar al servicio de autenticación
         try:
+            # Obtener URL del servicio de autenticación
+            auth_url = get_service_url('AUTH_SERVICE_URL')
+            register_url = f"{auth_url}register/"
+            
             response = requests.post(
-                f"{AUTH_SERVICE_URL}register/", 
+                register_url, 
                 json=user_data
             )
             
@@ -120,8 +140,12 @@ def password_reset_request(request):
         
         # Llamar al servicio de autenticación
         try:
+            # Obtener URL del servicio de autenticación
+            auth_url = get_service_url('AUTH_SERVICE_URL')
+            reset_url = f"{auth_url}password/reset/"
+            
             response = requests.post(
-                f"{AUTH_SERVICE_URL}password/reset/", 
+                reset_url, 
                 json={"email": email}
             )
             
@@ -148,8 +172,12 @@ def password_reset_confirm(request, token):
         
         # Llamar al servicio de autenticación
         try:
+            # Obtener URL del servicio de autenticación
+            auth_url = get_service_url('AUTH_SERVICE_URL')
+            reset_confirm_url = f"{auth_url}password/reset/confirm/"
+            
             response = requests.post(
-                f"{AUTH_SERVICE_URL}password/reset/confirm/", 
+                reset_confirm_url, 
                 json={
                     "token": token,
                     "password": password,
@@ -177,48 +205,67 @@ def password_reset_confirm(request, token):
 # @login_required
 def user_dashboard(request):
     """Vista del panel de usuario con transacciones reales"""
-    print("\n==== DEBUG USER DASHBOARD ====")
+    logger.debug("==== DEBUG USER DASHBOARD ====")
     
     # Verificar autenticación
     if 'access_token' not in request.session or 'user_data' not in request.session:
-        print("No hay sesión activa")
+        logger.debug("No hay sesión activa")
         messages.error(request, 'Por favor, inicia sesión para acceder a tu panel.')
         return redirect('login')
     
     # Obtener datos del usuario
     user_data = request.session.get('user_data', {})
     access_token = request.session.get('access_token', '')
-    print(f"Datos de usuario: {user_data}")
+    logger.debug(f"Datos de usuario: {user_data}")
     
     # Obtener transacciones del usuario
     transactions = []
     
     try:
-        # URL para obtener transacciones del usuario
-        url = f"http://localhost:8002/api/transactions/transactions/?sender_id={user_data.get('id')}"
+        # Obtener URL del servicio de transacciones
+        transaction_url = get_service_url('TRANSACTION_SERVICE_URL')
+        transactions_endpoint = f"{transaction_url}transactions/"
+        
+        # Verificar si el usuario tiene un ID
+        if not user_data.get('id'):
+            logger.error("ID de usuario no encontrado en los datos de sesión")
+            messages.error(request, "No se pudo identificar al usuario. Por favor, vuelva a iniciar sesión.")
+            return redirect('login')
+        
+        # Preparar la URL con el ID de usuario
+        user_transactions_url = f"{transactions_endpoint}?sender_id={user_data.get('id')}"
         headers = {'Authorization': f"Bearer {access_token}"}
         
-        print(f"Solicitando transacciones a: {url}")
-        print(f"Headers: {headers}")
+        logger.debug(f"Solicitando transacciones a: {user_transactions_url}")
+        logger.debug(f"Headers: {headers}")
         
-        # Realizar la solicitud
-        response = requests.get(url, headers=headers)
+        # Realizar la solicitud con timeout para evitar bloqueos
+        response = requests.get(user_transactions_url, headers=headers, timeout=5)
         
-        print(f"Respuesta: {response.status_code}")
+        logger.debug(f"Respuesta: {response.status_code}")
         
         if response.status_code == 200:
             data = response.json()
             transactions = data.get('results', [])
-            print(f"Transacciones obtenidas: {len(transactions)}")
+            logger.debug(f"Transacciones obtenidas: {len(transactions)}")
         elif response.status_code == 401:
-            print("Token inválido o expirado")
+            logger.debug("Token inválido o expirado")
+            
+            # Intentar renovar el token si hay refresh token
+            if 'refresh_token' in request.session:
+                refresh_success = refresh_access_token(request)
+                if refresh_success:
+                    messages.info(request, "Sesión renovada automáticamente")
+                    return redirect('user_dashboard')  # Reintentar con el token renovado
+            
+            # Si no hay refresh token o falló la renovación
             messages.error(request, 'Tu sesión ha expirado. Por favor, inicia sesión nuevamente.')
             return redirect('login')
         else:
-            print(f"Error al obtener transacciones: {response.status_code}")
+            logger.error(f"Error al obtener transacciones: {response.status_code} - {response.text}")
             messages.error(request, 'Error al obtener el historial de transacciones.')
-    except Exception as e:
-        print(f"Excepción al obtener transacciones: {str(e)}")
+    except requests.RequestException as e:
+        logger.error(f"Excepción al obtener transacciones: {str(e)}")
         messages.error(request, f'Error de conexión: {str(e)}')
     
     context = {
@@ -228,30 +275,56 @@ def user_dashboard(request):
     
     return render(request, 'user_panel/dashboard.html', context)
 
+def refresh_access_token(request):
+    """Función para renovar el token de acceso usando el refresh token"""
+    refresh_token = request.session.get('refresh_token')
+    if not refresh_token:
+        return False
+    
+    try:
+        auth_url = get_service_url('AUTH_SERVICE_URL')
+        refresh_url = f"{auth_url}token/refresh/"
+        
+        response = requests.post(
+            refresh_url,
+            json={"refresh": refresh_token},
+            timeout=5
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            request.session['access_token'] = data.get('access', '')
+            request.session.modified = True
+            return True
+    except:
+        pass
+    
+    return False
+
 def transaction_form(request):
     """Vista del formulario de transacción con comunicación real"""
-    print("\n==== DEBUG TRANSACTION FORM ====")
+    logger.debug("==== DEBUG TRANSACTION FORM ====")
     
     # Verificar autenticación
     if 'access_token' not in request.session or 'user_data' not in request.session:
-        print("No hay sesión activa")
+        logger.debug("No hay sesión activa")
         messages.error(request, 'Por favor, inicia sesión para realizar una transacción.')
         return redirect('login')
     
     # Obtener datos del usuario
     user_data = request.session.get('user_data', {})
     access_token = request.session.get('access_token', '')
-    print(f"Datos de usuario: {user_data}")
+    logger.debug(f"Datos de usuario: {user_data}")
     
     # Si es POST, procesar el formulario
     if request.method == 'POST':
-        print("Procesando formulario POST")
+        logger.debug("Procesando formulario POST")
         # Obtener datos del formulario
         receiver_name = request.POST.get('receiver_name')
         amount = request.POST.get('amount')
         message = request.POST.get('message', '')
         
-        print(f"Datos de transacción: Receptor={receiver_name}, Monto={amount}, Mensaje={message}")
+        logger.debug(f"Datos de transacción: Receptor={receiver_name}, Monto={amount}, Mensaje={message}")
         
         # Validar datos básicos
         errors = []
@@ -293,22 +366,23 @@ def transaction_form(request):
                 'Content-Type': 'application/json'
             }
             
-            # URL del microservicio de transacciones
-            url = "http://localhost:8002/api/transactions/transactions/"
+            # Obtener URL del servicio de transacciones
+            transaction_url = get_service_url('TRANSACTION_SERVICE_URL')
+            transactions_endpoint = f"{transaction_url}transactions/"
             
-            print(f"Enviando solicitud a {url}")
-            print(f"Datos: {transaction_data}")
-            print(f"Headers: {headers}")
+            logger.debug(f"Enviando solicitud a {transactions_endpoint}")
+            logger.debug(f"Datos: {transaction_data}")
             
-            # Realizar la solicitud POST
+            # Realizar la solicitud POST con timeout
             response = requests.post(
-                url, 
+                transactions_endpoint, 
                 json=transaction_data,
-                headers=headers
+                headers=headers,
+                timeout=10  # Dar más tiempo a esta operación
             )
             
-            print(f"Respuesta: {response.status_code}")
-            print(f"Contenido: {response.text[:500]}")
+            logger.debug(f"Respuesta: {response.status_code}")
+            logger.debug(f"Contenido: {response.text[:500]}")
             
             if response.status_code == 201:  # Creado exitosamente
                 transaction = response.json()
@@ -325,12 +399,26 @@ def transaction_form(request):
                     messages.success(request, 'Transacción realizada con éxito.')
                 
                 return redirect('user_dashboard')
+            elif response.status_code == 401:
+                # Token expirado, intentar renovar
+                if refresh_access_token(request):
+                    messages.info(request, "Por favor, intente de nuevo. Su sesión ha sido renovada.")
+                else:
+                    messages.error(request, 'Su sesión ha expirado. Por favor, inicie sesión nuevamente.')
+                    return redirect('login')
             else:
-                print(f"Error en la creación de la transacción: {response.text}")
-                messages.error(request, f'Error al procesar la transacción: {response.status_code}')
+                logger.error(f"Error en la creación de la transacción: {response.text}")
+                error_msg = "Error al procesar la transacción"
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict) and 'detail' in error_data:
+                        error_msg = error_data['detail']
+                except:
+                    pass
+                messages.error(request, error_msg)
                 
-        except Exception as e:
-            print(f"Excepción al crear transacción: {str(e)}")
+        except requests.RequestException as e:
+            logger.error(f"Excepción al crear transacción: {str(e)}")
             messages.error(request, f'Error de conexión: {str(e)}')
     
     # Si es GET, mostrar formulario
@@ -376,9 +464,13 @@ def admin_dashboard(request):
     headers = {'Authorization': f"Bearer {request.session.get('access_token')}"}
     
     try:
+        # Obtener la URL del servicio de transacciones
+        transaction_url = get_service_url('TRANSACTION_SERVICE_URL')
+        stats_url = f"{transaction_url}transactions/stats/"
+        
         # Obtener estadísticas
         response = requests.get(
-            f"{settings.MICROSERVICES['TRANSACTION_SERVICE_URL']}transactions/stats/", 
+            stats_url, 
             headers=headers
         )
         
@@ -395,8 +487,12 @@ def admin_dashboard(request):
     # Obtener transacciones fraudulentas para alertas
     fraud_transactions = []
     try:
+        # Obtener la URL del servicio de transacciones
+        transaction_url = get_service_url('TRANSACTION_SERVICE_URL')
+        fraud_url = f"{transaction_url}transactions/?status=fraudulent"
+        
         response = requests.get(
-            f"{settings.MICROSERVICES['TRANSACTION_SERVICE_URL']}transactions/?status=fraudulent", 
+            fraud_url, 
             headers=headers
         )
         
@@ -428,8 +524,11 @@ def admin_transactions(request):
     min_amount = request.GET.get('min_amount', '')
     max_amount = request.GET.get('max_amount', '')
     
+    # Obtener la URL del servicio de transacciones
+    transaction_url = get_service_url('TRANSACTION_SERVICE_URL')
+    
     # Construir URL con filtros
-    url = f"{TRANSACTION_SERVICE_URL}transactions/"
+    url = f"{transaction_url}transactions/"
     params = {}
     
     if status_filter:
@@ -444,7 +543,7 @@ def admin_transactions(request):
     
     try:
         if min_amount or max_amount:
-            filter_url = f"{TRANSACTION_SERVICE_URL}transactions/filter_by_amount/"
+            filter_url = f"{transaction_url}transactions/filter_by_amount/"
             response = requests.get(
                 filter_url, 
                 params=params,
@@ -487,12 +586,16 @@ def update_transaction_status(request):
         transaction_id = data.get('transaction_id')
         status = data.get('status')
         
+        # Obtener la URL del servicio de transacciones
+        transaction_url = get_service_url('TRANSACTION_SERVICE_URL')
+        update_url = f"{transaction_url}transactions/{transaction_id}/update_status/"
+        
         # Actualizar estado
         headers = {'Authorization': f"Bearer {request.session.get('access_token')}"}
         
         try:
             response = requests.post(
-                f"{TRANSACTION_SERVICE_URL}transactions/{transaction_id}/update_status/", 
+                update_url, 
                 json={"status": status},
                 headers=headers
             )

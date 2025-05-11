@@ -1,0 +1,20 @@
+DEBUG 2025-05-10 22:15:46,124 views 19856 13180 Intento de login: {'email': 'daniigar2005@hotmail.com', 'password': '123#Daniel'}
+DEBUG 2025-05-10 22:15:46,704 views 19856 13180 Login exitoso para usuario: 3 - daniigar2005@hotmail.com
+DEBUG 2025-05-10 22:23:47,235 views 19856 10940 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:23:47,782 views 19856 10940 Autenticación fallida para: test@example.com
+DEBUG 2025-05-10 22:37:48,129 views 19856 22468 Datos de registro recibidos: {'first_name': 'Brayan', 'last_name': 'Guerrero', 'id_number': '231234567', 'id_issue_date': '2025-04-29', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'password': '123@Brayan', 'password_confirm': '123@Brayan'}
+DEBUG 2025-05-10 22:37:48,736 views 19856 22468 Usuario creado con ID: 4
+DEBUG 2025-05-10 22:38:01,714 views 19856 3056 Intento de login: {'email': 'guerrerodecimoa@gmail.com', 'password': '123@Brayan'}
+DEBUG 2025-05-10 22:38:02,272 views 19856 3056 Login exitoso para usuario: 4 - guerrerodecimoa@gmail.com
+DEBUG 2025-05-10 22:39:19,974 views 19856 21012 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:39:20,527 views 19856 21012 Autenticación fallida para: test@example.com
+DEBUG 2025-05-10 22:42:15,792 views 19856 12640 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:42:16,335 views 19856 12640 Autenticación fallida para: test@example.com
+DEBUG 2025-05-10 22:45:26,018 views 19856 6936 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:45:26,577 views 19856 6936 Autenticación fallida para: test@example.com
+DEBUG 2025-05-10 22:52:50,950 views 19856 20544 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:52:51,489 views 19856 20544 Autenticación fallida para: test@example.com
+DEBUG 2025-05-10 22:55:49,897 views 19856 22260 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:55:50,430 views 19856 22260 Autenticación fallida para: test@example.com
+DEBUG 2025-05-10 22:58:53,737 views 20320 5616 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
+DEBUG 2025-05-10 22:58:54,267 views 20320 5616 Autenticación fallida para: test@example.com

@@ -69,7 +69,10 @@ def generate_synthetic_data(num_samples=100):
             amount = np.random.uniform(500, 2000)
         
         # Hora del día (más probable en horas inusuales)
-        hour = np.random.choice([np.random.randint(0, 6), np.random.randint(22, 24)])[0]
+        if np.random.random() < 0.5:
+            hour = np.random.randint(0, 6)  # Horas tempranas de la noche/madrugada
+        else:
+            hour = np.random.randint(22, 24)  # Horas tardías de la noche
         
         # Día de la semana (más probable en fin de semana)
         day = np.random.choice(range(7), p=[0.1, 0.1, 0.1, 0.1, 0.1, 0.25, 0.25])
