@@ -18,3 +18,5 @@ DEBUG 2025-05-10 22:55:49,897 views 19856 22260 Intento de login: {'email': 'tes
 DEBUG 2025-05-10 22:55:50,430 views 19856 22260 Autenticación fallida para: test@example.com
 DEBUG 2025-05-10 22:58:53,737 views 20320 5616 Intento de login: {'email': 'test@example.com', 'password': 'Test@123'}
 DEBUG 2025-05-10 22:58:54,267 views 20320 5616 Autenticación fallida para: test@example.com
+DEBUG 2025-05-14 23:20:31,247 views 1700 16180 Intento de login: {'email': 'guerrerodecimoa@gmail.com', 'password': '123@Brayan'}
+DEBUG 2025-05-14 23:20:31,854 views 1700 16180 Login exitoso para usuario: 4 - guerrerodecimoa@gmail.com
