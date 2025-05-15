@@ -446,3 +446,475 @@ DEBUG 2025-05-10 22:39:06,205 views 21788 21720 Respuesta: 401
 DEBUG 2025-05-10 22:39:06,206 views 21788 21720 Token inválido o expirado
 DEBUG 2025-05-10 22:39:06,208 connectionpool 21788 21720 Starting new HTTP connection (1): localhost:8001
 DEBUG 2025-05-10 22:39:08,252 connectionpool 21788 21720 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:19:59,748 views 19080 14640 ==== DEBUG LOGIN VIEW ====
+DEBUG 2025-05-14 23:19:59,754 views 19080 14640 Método: GET
+DEBUG 2025-05-14 23:20:29,153 views 19080 14640 ==== DEBUG LOGIN VIEW ====
+DEBUG 2025-05-14 23:20:29,154 views 19080 14640 Método: POST
+DEBUG 2025-05-14 23:20:29,154 views 19080 14640 Email: guerrerodecimoa@gmail.com
+DEBUG 2025-05-14 23:20:29,154 views 19080 14640 Autenticando con: http://localhost:8001/api/auth/login/
+DEBUG 2025-05-14 23:20:29,166 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:31,980 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/login/ HTTP/1.1" 200 628
+DEBUG 2025-05-14 23:20:31,980 views 19080 14640 Código de respuesta: 200
+DEBUG 2025-05-14 23:20:31,981 views 19080 14640 Datos recibidos: dict_keys(['refresh', 'access', 'user'])
+DEBUG 2025-05-14 23:20:31,981 views 19080 14640 Redirigiendo a dashboard
+DEBUG 2025-05-14 23:20:31,997 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:32,002 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:32,003 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:32,005 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjMxLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImQxMzY0MWU0MmZmMjRjOTJiOTE3YzRiOGU1ODRlMGI4IiwidXNlcl9pZCI6NH0.nCdBthUpDYEjYrpL61yAbvhxSP2jxh06UgvGYQQbqg4'}
+DEBUG 2025-05-14 23:20:32,007 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:34,232 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:34,234 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:34,234 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:34,237 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:36,267 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:20:36,283 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:36,286 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:36,287 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:36,287 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjM2LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImFhMGFjZDdhMmM2OTRkZDQ4ZWUzMGQ5MGI2NzZmYzA0IiwidXNlcl9pZCI6NH0.OWfkcFpYJSQf99yauun-KmOKDmZ5NOvbqvoX8QqFkmE'}
+DEBUG 2025-05-14 23:20:36,289 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:38,333 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:38,334 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:38,335 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:38,337 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:40,357 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:20:40,372 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:40,375 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:40,375 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:40,375 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjQwLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjczZWFlMWFlNWYxODRmZTRiOWViNjYwODc2ZGRjMDk2IiwidXNlcl9pZCI6NH0.NEAUyU5T8ukC94KygXqrqrkfo2Jm7z5CXGqaVl-8vp8'}
+DEBUG 2025-05-14 23:20:40,378 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:42,411 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:42,412 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:42,412 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:42,414 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:44,461 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:20:44,473 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:44,478 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:44,479 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:44,479 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjQ0LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjE1MGFlYThmODkxOTRjNzA5OWU5YmU1NTMzNGQyNTM4IiwidXNlcl9pZCI6NH0.ucl0n1v4DjsU0FuRAO45_SvCql_tAAUlp4a7-Rr5f5A'}
+DEBUG 2025-05-14 23:20:44,480 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:46,506 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:46,506 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:46,506 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:46,507 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:48,553 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:20:48,565 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:48,570 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:48,570 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:48,571 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjQ4LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjZlMWNiNDA1ZGNiNjRhZDdiNWVhODllNjdmOTIwODAzIiwidXNlcl9pZCI6NH0.lqlhjRnvn_AyE-xxtqX6ZZs7q8B_oMsW2a0iWIStqoo'}
+DEBUG 2025-05-14 23:20:48,572 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:50,595 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:50,596 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:50,597 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:50,599 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:52,642 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:20:52,656 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:52,661 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:52,661 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:52,661 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjUyLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjkyOTgyZTBjYWExYTRhNWM4MGM3ZDU1Nzc5OGFkYzdiIiwidXNlcl9pZCI6NH0.nXNsW1h-rLYgQ85yDuy38oElf7K51QZiCLdwO9J1RYk'}
+DEBUG 2025-05-14 23:20:52,663 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:54,697 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:54,699 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:54,699 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:54,700 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:20:56,734 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:20:56,750 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:20:56,754 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:20:56,754 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:20:56,754 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjU2LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjhjMzk0ZTk0NWRjMzQwYjdiMWRlYTEyMmM4MDY2ZWZiIiwidXNlcl9pZCI6NH0.o90hB4Gmss-Fkk2SaFoGMS12Ghvbi927BxSl2gnTIyg'}
+DEBUG 2025-05-14 23:20:56,755 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:20:58,802 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:20:58,804 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:20:58,804 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:20:58,807 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:00,833 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:00,849 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:00,853 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:00,853 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:00,853 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjYwLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjEyY2ZkNTE2ZDk3YTQ5NDFiZmFhMmUwZDVhMGVlNGIyIiwidXNlcl9pZCI6NH0.1K1tS_mb4aiVXbFBfqWLWeTZRAqzyEvNBQ2mqFa3wF4'}
+DEBUG 2025-05-14 23:21:00,854 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:02,895 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:02,897 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:02,898 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:02,899 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:04,939 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:04,954 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:04,958 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:04,958 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:04,958 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjY0LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjI2YjAwZjA3M2I4YjQyMGE5NWI4YTlkODNiZTA3MTlhIiwidXNlcl9pZCI6NH0.quZewVBqHeApiMAhvxoOb3HmC6XqszJi63C0M5fa1-0'}
+DEBUG 2025-05-14 23:21:04,959 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:06,992 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:06,993 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:06,994 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:06,995 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:09,027 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:09,039 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:09,043 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:09,044 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:09,044 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjY5LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImUzMmNhNWQ5NDFjYzQ0YTY4N2ZhYzJlMmRlYzhhODgzIiwidXNlcl9pZCI6NH0.w2-WmyPxXc6jHJATnlARxOQ-sCI9gbXdec2feCDCCec'}
+DEBUG 2025-05-14 23:21:09,045 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:11,073 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:11,075 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:11,075 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:11,076 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:13,109 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:13,123 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:13,125 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:13,127 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:13,127 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjczLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjNjNTZiZjAxYzNlYjQwYzI5NWI4ZmNlYzFiZTJjOGJiIiwidXNlcl9pZCI6NH0.vO8cjKzuRr9URpLWR-Poq8w2P3W4YC79S47DQ_VqCXU'}
+DEBUG 2025-05-14 23:21:13,128 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:15,164 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:15,165 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:15,165 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:15,166 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:17,193 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:17,205 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:17,212 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:17,213 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:17,213 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Njc3LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjE3YTNlNzQxMjEyMTQ0ZWI5NzU1MjJiMDlkMjg2MmMzIiwidXNlcl9pZCI6NH0.Bh-7duXXb7UbYzeHF0MSUlJPt-k8eiOidLeseqstOBg'}
+DEBUG 2025-05-14 23:21:17,214 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:19,241 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:19,242 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:19,243 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:19,244 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:21,267 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:21,281 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:21,284 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:21,285 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:21,285 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjgxLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjI1NTU4MDVkN2FlNDQzMGY4OGNmZGViNTBlNjkyMWY0IiwidXNlcl9pZCI6NH0.ShGf1YrRHBIeufelhRdO95hF9IWPsfSCxtcnIlq9Pv8'}
+DEBUG 2025-05-14 23:21:21,289 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:23,319 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:23,321 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:23,322 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:23,323 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:25,360 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:25,374 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:25,377 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:25,377 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:25,377 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Njg1LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjNmOThlNThkNDcxNTQzNTc4YmZlMjRmYzlkMjRlNmZkIiwidXNlcl9pZCI6NH0.aCR5HS7j8QCUHX2Qw7KpzN2nZq1-Jybif1yJoGgHRuE'}
+DEBUG 2025-05-14 23:21:25,379 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:27,423 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:27,424 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:27,424 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:27,425 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:29,444 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:29,457 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:29,462 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:29,462 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:29,463 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Njg5LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjdmNWJkYzBjYWU3ZTRjNWY4ZWE2NDc2NDFmZjQ5OGJlIiwidXNlcl9pZCI6NH0.XN3r9SRvFK0dtTKbhROLnkJtCEJ-S07ZyXPKDnajftY'}
+DEBUG 2025-05-14 23:21:29,464 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:31,500 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:31,501 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:31,501 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:31,502 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:33,522 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:33,534 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:33,537 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:33,537 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:33,538 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NjkzLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjJmYzY5MTRkOGU3MTRjOWY4ZmU0ZGI2MzMyMjc4ZWNlIiwidXNlcl9pZCI6NH0.uMLJqbbCq6JMZ9hw4u8YgFZT8KYHOSjPRsTCltXZfIk'}
+DEBUG 2025-05-14 23:21:33,539 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:35,584 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:35,588 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:35,588 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:35,591 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:37,642 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:37,659 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:37,663 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:37,664 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:37,664 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Njk3LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImYxZmVjMjE2OWNmNDQ5ZGU4ZjBkYmE3OTZjYzA4YjE0IiwidXNlcl9pZCI6NH0.jSqzB7A4OwgSCAcBWyzZkVaHL6GY_U2FLiB44moKpwk'}
+DEBUG 2025-05-14 23:21:37,665 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:39,691 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:39,691 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:39,692 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:39,693 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:41,719 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:41,732 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:41,739 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:41,739 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:41,740 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzAxLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjY5Y2I1MmI3YjkzNzQ2OWFiOTA4ZjU5M2M0MTBjNjQ4IiwidXNlcl9pZCI6NH0.DgH1fMcVpP1V3RvDMAhJMtNtD0Cfo1GfdeOI1R10Lh8'}
+DEBUG 2025-05-14 23:21:41,742 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:43,783 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:43,784 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:43,784 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:43,786 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:45,823 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:45,837 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:45,842 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:45,843 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:45,845 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzA1LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImQ5OGZmOTU4OGNkODQzNGRiMzlkMDZmZDNmMWQ1NzBlIiwidXNlcl9pZCI6NH0.fRpqXc0nbYfbfGt4PSZvZ4ctySCm1094G4SdIBegpgg'}
+DEBUG 2025-05-14 23:21:45,847 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:47,875 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:47,876 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:47,876 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:47,877 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:49,915 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:50,996 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:51,022 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:51,041 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:51,047 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzA5LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjQyYTM4Y2ViM2MxNzQ0Mzk5YTgzODk1MDdkNTdhNjI1IiwidXNlcl9pZCI6NH0.fyccYPVLenJ_FpSx2SGO8nGL-M4z2X6vR11LY6xmyTk'}
+DEBUG 2025-05-14 23:21:51,056 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:53,075 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:53,076 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:53,077 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:53,079 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:55,122 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:55,137 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:55,140 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:55,140 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:55,141 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzE1LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjdlMDkzYzQ0YzM4ZjQ4OWI4Nzc5MjdkMWYyYTc0MzhjIiwidXNlcl9pZCI6NH0.d60mWsocLw-8O3HXQl-oq6RjrzmwEsSuAI_8S_A8cBo'}
+DEBUG 2025-05-14 23:21:55,142 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:21:57,165 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:21:57,166 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:21:57,166 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:21:57,167 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:21:59,217 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:21:59,235 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:21:59,241 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:21:59,242 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:21:59,242 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzE5LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImU3NjQ2YWE0NmMyZjQ5YzNiMjY2OTc3MDliNDZlZGVkIiwidXNlcl9pZCI6NH0.vaIKk_saaikTg8Eqb4GQeK0c24j_ZAuoS7CoaChGYvA'}
+DEBUG 2025-05-14 23:21:59,244 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:01,266 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:01,268 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:01,268 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:01,270 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:03,298 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:03,313 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:03,317 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:03,317 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:03,317 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzIzLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImUzYjc4MjM0MDQ4ZTQ5OGU5NmRhYjRhN2Y0YjY5MTQxIiwidXNlcl9pZCI6NH0.UkJfnEqLVW6N1lDl3t_-j8W-7NngDMo6SWf24GKdRFA'}
+DEBUG 2025-05-14 23:22:03,319 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:05,347 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:05,348 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:05,348 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:05,350 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:07,392 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:07,409 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:07,413 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:07,415 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:07,417 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzI3LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImQyNGI0N2RiMWRiODQ5NGZiMTcyMjhjOTUyNjBjN2ExIiwidXNlcl9pZCI6NH0.JjLZvNrwwdTVCtcdgKpX4GLoRGisomEHFkUtMGEEfUY'}
+DEBUG 2025-05-14 23:22:07,421 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:09,457 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:09,457 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:09,458 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:09,459 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:11,475 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:11,490 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:11,493 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:11,493 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:11,494 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzMxLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImRjYmYzZGU4NGQ5MTQ0ZmJhM2ExMmY3ZDIxZDJiYjc0IiwidXNlcl9pZCI6NH0.FB6PBhxnSYj6Hf9PikZ8LhZ7WsAetXuBdscwe7JrcbE'}
+DEBUG 2025-05-14 23:22:11,495 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:13,517 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:13,517 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:13,517 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:13,519 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:15,565 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:15,581 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:15,589 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:15,589 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:15,590 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzM1LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6Ijk1MzEzODIyOGM3YTQ4MjJhMjc1MDk5MjQ4NWQ0ZGIyIiwidXNlcl9pZCI6NH0.nHMP93OCZN7GnNnJ9nC1Cjr8RKmVQIoNV_3GjJUAge8'}
+DEBUG 2025-05-14 23:22:15,595 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:17,625 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:17,627 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:17,627 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:17,631 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:19,655 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:19,673 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:19,677 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:19,677 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:19,677 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzM5LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImM1YmU2ZWU1YThiOTQ1Zjc4ZDliMjBmYmMyNTVkNmE2IiwidXNlcl9pZCI6NH0.ly5zsX1WjbCWqOzJYjJRzqFFG1BVDDadYUuutcgPpXo'}
+DEBUG 2025-05-14 23:22:19,678 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:21,713 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:21,714 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:21,714 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:21,715 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:23,773 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:23,840 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:23,847 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:23,848 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:23,848 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzQzLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjVhNDJhNGZkNTE1YjQ3NDg5NjZiYWM0ODU2ZjRlZjBlIiwidXNlcl9pZCI6NH0.sSipm7-G4c6h05a3G91YEkKKICwqmUYxRMb4QSOQzIg'}
+DEBUG 2025-05-14 23:22:23,851 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:25,906 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:25,910 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:25,911 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:25,913 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:27,939 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:27,959 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:27,967 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:27,967 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:27,967 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzQ3LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImZjMDFjOGIwMzEwOTRiZDBhMzg5ZGJlZWI2ODlmNjQzIiwidXNlcl9pZCI6NH0.QBjO-myXS-CsSQQp0IkSg4JjT3PVUPP8AlC1TgceUJg'}
+DEBUG 2025-05-14 23:22:27,969 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:30,021 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:30,022 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:30,022 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:30,024 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:32,057 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:32,075 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:32,080 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:32,082 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:32,082 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzUyLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImUyMmUyOTcyZGUwYTQ5NzdiMWNjODJmMmFlZDBiNGE2IiwidXNlcl9pZCI6NH0.MBtXkVY0BSlHCVgk9VjT3A_uCvizg8uuXw9lOeCM_AU'}
+DEBUG 2025-05-14 23:22:32,084 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:34,128 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:34,128 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:34,129 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:34,130 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:36,171 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:36,188 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:36,191 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:36,192 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:36,192 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzU2LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImY2NzZhNjJhMzRmMjQwMmU5YjY5NWM5ODUzNmRjYTFjIiwidXNlcl9pZCI6NH0.yCnpaQoq6RO-fzgRkX_QGqR8Vv2y6xV4TkCNMohR9xg'}
+DEBUG 2025-05-14 23:22:36,195 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:38,235 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:38,237 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:38,237 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:38,240 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:40,259 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:40,273 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:40,277 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:40,278 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:40,278 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzYwLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImU2MmY3Zjc1YjA3YjQwZGM4YzM4YTRkYTlhNzk3ZDA0IiwidXNlcl9pZCI6NH0.uCPYbVBpg62KACT5OMnVT8VBF9YUotwuwwYVJ_eoM8I'}
+DEBUG 2025-05-14 23:22:40,280 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:42,314 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:42,317 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:42,318 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:42,319 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:44,347 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:44,360 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:44,363 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:44,363 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:44,364 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzY0LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImI0MjY3MzliNWM0OTRmMDViZWI3NGU4MmI5MjU5OWFhIiwidXNlcl9pZCI6NH0.yf9r3s6ywpAEi1qB2ubE_C91YYw8klUxGk6Y2sld9SE'}
+DEBUG 2025-05-14 23:22:44,365 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:46,387 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:46,388 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:46,388 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:46,390 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:48,424 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:48,444 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:48,451 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:48,453 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:48,454 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzY4LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImZmNWMzODQ3YjRiNjQ0NThiYjBjMGZjNzVhMTExMzUwIiwidXNlcl9pZCI6NH0.zX524b7jKVH7gqBHwUBJTPtOs7hz31Yb0ISEjVd18Dc'}
+DEBUG 2025-05-14 23:22:48,458 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:50,481 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:50,481 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:50,482 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:50,483 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:52,516 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:52,532 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:52,535 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:52,535 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:52,535 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzcyLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6ImQ5NTNhMTJhYWUyMjQyNTA4MGQ5MTAwMzVhMTNmNGFlIiwidXNlcl9pZCI6NH0.GHjaD6ZSSjhv62RqQogSpR8E3pee_sQo2dWZFgXxbYY'}
+DEBUG 2025-05-14 23:22:52,539 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:54,580 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:54,581 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:54,581 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:54,582 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:22:56,614 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:22:56,629 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:22:56,633 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:22:56,634 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:22:56,634 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Nzc2LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjRhZTk5MjZhMzQ4ZDRjYWI4ZDljYTEyY2U5Y2VjMDA4IiwidXNlcl9pZCI6NH0.lph4LNoEmf3u8g2K_unsfMbZ0yMpsCLkXOuZDNGKzMs'}
+DEBUG 2025-05-14 23:22:56,637 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:22:58,653 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:22:58,654 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:22:58,654 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:22:58,655 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:00,691 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:00,705 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:00,710 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:00,711 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:00,711 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzgwLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjE2YWM3NTdhMmIxZTRmNmJhMGQ4NTI5NjUzZGMwOWI4IiwidXNlcl9pZCI6NH0.U3WX1Vk2RjjadaZd81mSJ-QZU0SZ4R5BMNqwNBKgkEc'}
+DEBUG 2025-05-14 23:23:00,712 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:02,744 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:02,744 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:02,745 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:02,746 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:04,759 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:04,772 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:04,775 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:04,775 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:04,775 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Nzg0LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjkxMWY3NjlhMjk0NDRkYTFhNDQ4YmZiNmNmMzMwOTIzIiwidXNlcl9pZCI6NH0.AnSDmkKQMK08vEHyrWVONGdxNCS_PmOLOmzRtE33r8M'}
+DEBUG 2025-05-14 23:23:04,777 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:06,804 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:06,805 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:06,805 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:06,807 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:08,837 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:08,850 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:08,854 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:08,854 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:08,854 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0Nzg4LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjliMDI5YWY3NDZjZTQzMzRhOGU5ODk1OWM1NDJiZTYyIiwidXNlcl9pZCI6NH0.nxtAx0A30f6AoZildbnKnCnDpNiFjoJRf7sPES2rqcw'}
+DEBUG 2025-05-14 23:23:08,856 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:10,878 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:10,879 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:10,879 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:10,881 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:12,924 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:17,962 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:17,966 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:17,967 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:17,967 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0NzkyLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjFmMGY2ZjZmMTYwZjRlNjBiOTY5OTQxODJlYTBkNzk3IiwidXNlcl9pZCI6NH0.b-FF8iIfiBOOP1SrIDwtsChujtR8Rb2359P0MBt4K_0'}
+DEBUG 2025-05-14 23:23:17,969 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:19,990 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:19,991 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:19,991 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:19,993 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:22,012 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:22,024 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:22,028 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:22,028 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:22,028 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0ODAyLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6Ijc5Yzc1ZTcwMGU5YTQzNjRiNWNmZmYwODVlNmE1NGQxIiwidXNlcl9pZCI6NH0.xl2r-mUmn-AVVt_y03Di6LgbIgddDuZpMF--dJMEuI4'}
+DEBUG 2025-05-14 23:23:22,029 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:24,074 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:24,074 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:24,075 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:24,077 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:26,102 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:26,116 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:26,122 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:26,122 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:26,122 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0ODA2LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjkyM2NiNTRmMGE2ZDQ0YjdiZmM5MzJlNzc2MDFhMjg4IiwidXNlcl9pZCI6NH0.k6WFvXvXuUi8f9xX1glfW92gBBbjh95mvuu-Nn5YerE'}
+DEBUG 2025-05-14 23:23:26,124 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:28,149 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:28,150 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:28,150 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:28,151 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:30,195 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:30,210 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:30,214 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:30,214 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:30,214 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0ODEwLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6Ijg0YWUwZTAwODZjYzQ0Mzc4YjM0NmQ4NDdmZTBjN2ExIiwidXNlcl9pZCI6NH0.qrtrqB9pYA3f4Wtb20XZJ8KxGNfxDh7_ITArorQGcqc'}
+DEBUG 2025-05-14 23:23:30,215 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:32,253 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:32,253 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:32,254 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:32,254 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:34,295 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:34,307 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:34,311 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:34,311 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:34,311 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0ODE0LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6Ijg3MTFmYTA1ZTczYjQ4OTY5MzI0MDhkMDQwMWZjN2VkIiwidXNlcl9pZCI6NH0.LFOTpDBuSHYhOm68ZkgLM9JzKKNXOLSJG7Vqr_LLiz8'}
+DEBUG 2025-05-14 23:23:34,314 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:36,336 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:36,336 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:36,336 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:36,338 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:38,358 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:38,371 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:38,374 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:38,374 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:38,374 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0ODE4LCJpYXQiOjE3NDcyODI4MzEsImp0aSI6Ijc4OGI0MTQ2ZWU5YjQyNGE4ZTJhOWI4YTgzMGQ2MzEzIiwidXNlcl9pZCI6NH0.4SaGjLFX4QWkinUs3POem5al-qzBsf0m7MJ7hApa0uo'}
+DEBUG 2025-05-14 23:23:38,375 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:40,425 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:40,426 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:40,426 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:40,427 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:42,445 connectionpool 19080 14640 http://localhost:8001 "POST /api/auth/token/refresh/ HTTP/1.1" 200 241
+DEBUG 2025-05-14 23:23:42,462 views 19080 14640 ==== DEBUG USER DASHBOARD ====
+DEBUG 2025-05-14 23:23:42,465 views 19080 14640 Datos de usuario: {'id': 4, 'first_name': 'Brayan', 'last_name': 'Guerrero', 'email': 'guerrerodecimoa@gmail.com', 'phone_number': '2344535135', 'balance': '1000.00'}
+DEBUG 2025-05-14 23:23:42,465 views 19080 14640 Solicitando transacciones a: http://localhost:8002/api/transactions/transactions/?sender_id=4
+DEBUG 2025-05-14 23:23:42,465 views 19080 14640 Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3Mjg0ODIyLCJpYXQiOjE3NDcyODI4MzEsImp0aSI6IjRhMDA1OGNlMjBmNjRhNWI4NzlmYjE2ODc3NDA4Y2Q4IiwidXNlcl9pZCI6NH0.eGaU3L3fSqEhXfhjbvn7B1zLn2K-EIl3Bu4yjw3jpAU'}
+DEBUG 2025-05-14 23:23:42,467 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8002
+DEBUG 2025-05-14 23:23:44,489 connectionpool 19080 14640 http://localhost:8002 "GET /api/transactions/transactions/?sender_id=4 HTTP/1.1" 401 51
+DEBUG 2025-05-14 23:23:44,490 views 19080 14640 Respuesta: 401
+DEBUG 2025-05-14 23:23:44,491 views 19080 14640 Token inválido o expirado
+DEBUG 2025-05-14 23:23:44,492 connectionpool 19080 14640 Starting new HTTP connection (1): localhost:8001
+DEBUG 2025-05-14 23:23:48,582 views 19080 14640 ==== DEBUG LOGIN VIEW ====
+DEBUG 2025-05-14 23:23:48,582 views 19080 14640 Método: GET

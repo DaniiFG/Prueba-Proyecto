@@ -20,3 +20,13 @@ DEBUG 2025-05-10 22:58:53,737 views 20320 5616 Intento de login: {'email': 'test
 DEBUG 2025-05-10 22:58:54,267 views 20320 5616 Autenticación fallida para: test@example.com
 DEBUG 2025-05-14 23:20:31,247 views 1700 16180 Intento de login: {'email': 'guerrerodecimoa@gmail.com', 'password': '123@Brayan'}
 DEBUG 2025-05-14 23:20:31,854 views 1700 16180 Login exitoso para usuario: 4 - guerrerodecimoa@gmail.com
+DEBUG 2025-05-14 23:55:24,125 views 19928 17340 Intento de login: {'email': 'guerrerodecimoa@gmail.com', 'password': '123@Decimal'}
+DEBUG 2025-05-14 23:55:24,714 views 19928 17340 Autenticación fallida para: guerrerodecimoa@gmail.com
+DEBUG 2025-05-14 23:56:40,264 views 19928 9828 Intento de login: {'email': 'daniigar2005@hotmail.com', 'password': '123#Daniel'}
+DEBUG 2025-05-14 23:56:40,840 views 19928 9828 Login exitoso para usuario: 3 - daniigar2005@hotmail.com
+DEBUG 2025-05-14 23:57:40,709 views 19928 5224 Intento de login: {'email': 'guerrerodecimoa@gmail.com', 'password': '123@Daniel'}
+DEBUG 2025-05-14 23:57:41,878 views 19928 5224 Autenticación fallida para: guerrerodecimoa@gmail.com
+DEBUG 2025-05-14 23:57:59,200 views 19928 14512 Intento de login: {'email': 'guerrerodecimoa@gmail.com', 'password': '123@Daniel'}
+DEBUG 2025-05-14 23:57:59,779 views 19928 14512 Autenticación fallida para: guerrerodecimoa@gmail.com
+DEBUG 2025-05-14 23:58:30,196 views 19928 16644 Intento de login: {'email': 'daniigar2005@hotmail.com', 'password': '123#Daniel'}
+DEBUG 2025-05-14 23:58:30,796 views 19928 16644 Login exitoso para usuario: 3 - daniigar2005@hotmail.com
